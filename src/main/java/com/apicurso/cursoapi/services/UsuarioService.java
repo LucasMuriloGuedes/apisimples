@@ -31,4 +31,15 @@ public class UsuarioService {
         newObj.setSenha(usuario.getSenha());
         return usuarioRepository.save(newObj);
     }
+
+    public Usuario create(Usuario obj) {
+        obj.setId(null);
+        return usuarioRepository.save(obj);
+
+    }
+
+    public void delete(Integer id) {
+        findById(id);
+        usuarioRepository.deleteById(id);
+    }
 }
